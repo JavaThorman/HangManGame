@@ -1,0 +1,37 @@
+
+
+Uppgift Hänga gubbe! 
+
+Steg 1. Mindmap/Skiss och pseudokod.
+
+ 1. 
+
+ Datorn ska välja ett slumpvis ord ur en lista  == math.Random() * 1 * (list.size) 
+
+2. 
+
+Istället för ordet "Hej" SKRIV UT : "---" == print("-") * list.get(i).length; 
+3. Fråga användaren om bokstav eller hela ordet
+
+om bokstaven / ordet finns i det hemliga ordet och inte har gissats än, ersätt sträck med gissad bokstav/ord. 
+
+gissar spelaren alla rätt, så har spelaren vunnit. 
+Gissar spelaren hela ordet, så har spelaren vunnit
+
+
+// Klasser
+
+
+Klass spelaren: input gissa ord
+
+Klass egenskaper: (string man, int antalpoäng, int winningstreak)
+
+Klass ordlista (arraylist ordlista) array med massa konstiga ord!
+Metoder ordlista slumpOrd(); läggTillOrd(); taBortOrd();
+
+Klass valtOrd (String valtOrd())
+Egenskaper: hanterar ordet vi gissar på
+Metoder: getOrd(), return ord; matchaBokstav(), ersättBokstav()
+
+Klass Meny:
+Metoder: visaHuvudMeny(); 
