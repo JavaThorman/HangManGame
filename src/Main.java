@@ -1,8 +1,10 @@
 
 public class Main {
-
-
-
+    private static boolean lobbyRunning;
+    private static boolean choice; // Nu finns variabeln tillgänglig för alla metoder inom Main
+                                   //ifall du skapar metoder
+    int specificOption;
+// gå in i lobby klassen
     public static void main(String[] args) {
         // Instansiera ett nytt objekt av klassen WordList.
         WordList ordlista = new WordList();
