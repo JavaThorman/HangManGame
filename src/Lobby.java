@@ -67,6 +67,11 @@ public class Lobby {
             return false;
 
         }
+
+
+    }
+    public void exitProgram() {
+        System.out.println("Exiting program!\nCya :)");
     }
 
 

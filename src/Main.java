@@ -4,7 +4,7 @@ public class Main {
     private static boolean choice; // Nu finns variabeln tillgänglig för alla metoder inom Main
                                    //ifall du skapar metoder
     int specificOption;
-// gå in i lobby klassen
+
     public static void main(String[] args) {
         // Instansiera ett nytt objekt av klassen WordList.
         WordList ordlista = new WordList();
@@ -40,6 +40,7 @@ public class Main {
                     // Skapa en metod som slumpmässigt väljer ut ett ord ur vår WordList.
                     System.out.println("Game is now starting");
 
+
                     break;
 
                 case 2: // Skapa en metod för att lägga till ett ord i WordList:
@@ -50,16 +51,15 @@ public class Main {
                 case 3: // Skapa en metod för att ta bort ett ord från WordList:
                     System.out.println("Remove a word!");
                     ordlista.removeWord();
-                    break;
+                    continue;
 
                 case 4: // Visa alla ord.
                     System.out.println("Showing all words");
                     ordlista.showWords();
-                    break;
+                    continue;
 
                 case 5: // Avsluta programmet
-                    System.out.println("Exiting program!");
-
+                    newLobby.exitProgram();
                     break;
             }
             break;
