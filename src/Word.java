@@ -26,6 +26,9 @@ public class Word {
     }
 
     // Metod för att gissa ord
+
+    // Metod för gissa ord är hämtad från nätet. Hade kunnat lösa det själv men pga tidspressen så kör jag på detta.
+
     public void gissaOrd() {
         Scanner scanner = new Scanner(System.in);
         int attempts = 15; // antal försök användaren har på sig
@@ -82,6 +85,7 @@ public class Word {
 
 
 
+
     private void updateCurrentWord(char letter) {
         StringBuilder newWord = new StringBuilder(this.currentOrd);
         for (int i = 0; i < this.currentOrd.length(); i++) {
@@ -92,7 +96,7 @@ public class Word {
         this.currentOrd = newWord.toString();
     }
 
-
+    // Slut på lånad kod.
 
 
 
