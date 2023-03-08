@@ -74,6 +74,10 @@ public class Lobby {
         System.out.println("Exiting program!\nCya :)");
     }
 
+    public void startEngine() {
+        System.out.println("Game is now starting");
+    }
+
 
 
 

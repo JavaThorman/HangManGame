@@ -1,5 +1,6 @@
 
 public class Main {
+    public static String randomOrd;
     private static boolean lobbyRunning;
     private static boolean choice; // Nu finns variabeln tillgänglig för alla metoder inom Main
                                    //ifall du skapar metoder
@@ -13,7 +14,9 @@ public class Main {
         Player newPlayer = new Player();
         newPlayer.getPlayerName(); // Hämta spelarens namn
         newPlayer.WelcomePlayer(); // Välkomna spelaren.
+        Word ord = new Word();
         Lobby newLobby = new Lobby(); // Instansiera nytt objekt av klassen Lobby
+
         //Här kan du sätta en while (true)
         while (true) {
 
@@ -38,8 +41,10 @@ public class Main {
             switch (newLobby.lobbyOption) {
                 case 1: // Skapa boolean enterGame == running;
                     // Skapa en metod som slumpmässigt väljer ut ett ord ur vår WordList.
-                    System.out.println("Game is now starting");
-
+                    newLobby.startEngine();
+                    randomOrd = ordlista.randomWord(); // hämtar ett slumpvalt ord från ordlistan
+                    randomOrd = ord.getWord();
+                    ord.toString();
 
                     break;
 
