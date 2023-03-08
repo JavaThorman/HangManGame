@@ -1,83 +1,71 @@
-
 public class Main {
-    public static String randomOrd;
-    private static boolean lobbyRunning;
-    private static boolean choice; // Nu finns variabeln tillgänglig för alla metoder inom Main
-                                   //ifall du skapar metoder
-    int specificOption;
+    public static String randomOrd;  // slumpmässigt valt ord
+    private static boolean lobbyRunning;  // boolean för att avgöra om lobbyn är igång
+    private static boolean choice;  // boolean för att avgöra spelarens val i lobbyn
+    private static int specificOption;  // variabel för att spara vald menyoption i lobbyn
+    private static Word ord;  // ordet som ska gissas på
+    private static Player newPlayer;  // den nya spelaren
 
     public static void main(String[] args) {
-        // Instansiera ett nytt objekt av klassen WordList.
-        WordList ordlista = new WordList();
-        ordlista.initWords(); // initiera alla förinställda ord.
-        // Instansiera en ny spelare av klassen Player.
-        Player newPlayer = new Player();
-        newPlayer.getPlayerName(); // Hämta spelarens namn
-        newPlayer.WelcomePlayer(); // Välkomna spelaren.
-        Word ord = new Word();
-        Lobby newLobby = new Lobby(); // Instansiera nytt objekt av klassen Lobby
+        WordList ordlista = new WordList();  // skapa en ny ordlista
+        ordlista.initWords();  // initiera ordlistan med fördefinierade ord
+        Lobby newLobby = new Lobby();  // skapa en ny lobby
 
-        //Här kan du sätta en while (true)
         while (true) {
+            newLobby.introduction();  // hälsningsmeddelande från lobbyn
+            newLobby.askForStartGame();  // frågar om spelaren vill starta spelet
+            choice = newLobby.checkAnswer();  // kontrollerar spelarens val
 
-            newLobby.introduction(); // Introducera spelets regler och mål.
-            newLobby.askForStartGame(); // Fråga användaren om de vill starta spelet.
-            choice = newLobby.checkAnswer(); // Kontrollera användarens svar.
-
-            if (choice) {
-                lobbyRunning = true;
-                break;
+            if (choice) {  // om spelaren väljer att starta spelet
+                lobbyRunning = true;  // sätt igång lobbyn
+                newPlayer = new Player();  // skapa en ny spelare
+                newPlayer.getPlayerName();  // hämta spelarens namn
+                newPlayer.WelcomePlayer();  // hälsningsmeddelande till spelaren
+                ord = new Word();  // skapa ett nytt ord
+                break;  // avsluta loopen
             } else {
-                break;
+                break;  // avsluta loopen
             }
+        }
 
+        while (lobbyRunning) {  // så länge som lobbyn är igång
+            newLobby.LobbyMenu();  // visa lobbymenyn
+            specificOption = newLobby.lobbyOption;  // spara spelarens val
 
-        } while (lobbyRunning) {
-            newLobby.LobbyMenu(); // Visa menyn och mata in val
-            int specificOption = newLobby.lobbyOption;
+            switch (specificOption) {  // beroende på vad spelaren valde i lobbyn
+                case 1:
+                    newLobby.startEngine();  // starta spelet
+                    randomOrd = ordlista.randomWord();  // välj ett slumpmässigt ord från ordlistan
+                    ord.setWord(randomOrd);  // sätt ordet som ska gissas på
+                    ord.getWord();  // skriv ut ordet som ska gissas på
+                    System.out.println(ord.getWord());
+                    ord.replaceWordWithDashes();  // byt ut bokstäverna i ordet med understreck
+                    ord.gissaOrd();  // fråga spelaren att gissa på bokstäver
 
-
-            // Switch case för inmatning av val:
-            switch (newLobby.lobbyOption) {
-                case 1: // Skapa boolean enterGame == running;
-                    // Skapa en metod som slumpmässigt väljer ut ett ord ur vår WordList.
-                    newLobby.startEngine();
-                    randomOrd = ordlista.randomWord(); // hämtar ett slumpvalt ord från ordlistan
-                    randomOrd = ord.getWord();
-                    ord.toString();
-
-                    break;
-
-                case 2: // Skapa en metod för att lägga till ett ord i WordList:
-                    System.out.println("Add a word");
-                    ordlista.addWord();
                     continue;
 
-                case 3: // Skapa en metod för att ta bort ett ord från WordList:
-                    System.out.println("Remove a word!");
-                    ordlista.removeWord();
-                    continue;
+                case 2:
+                    System.out.println("Lägg till ett ord");
+                    ordlista.addWord();  // lägg till ett ord i ordlistan
+                    continue;  // fortsätt loopen
 
-                case 4: // Visa alla ord.
-                    System.out.println("Showing all words");
-                    ordlista.showWords();
-                    continue;
+                case 3:
+                    System.out.println("Ta bort ett ord!");
+                    ordlista.removeWord();  // ta bort ett ord från ordlistan
+                    continue;  // fortsätt loopen
 
-                case 5: // Avsluta programmet
-                    newLobby.exitProgram();
-                    break;
+                case 4:
+                    System.out.println("Visa alla ord");
+                    ordlista.showWords();  // visa alla ord i ordlistan
+                    continue;  // fortsätt loopen
+
+                case 5:
+                    newLobby.exitProgram();  // avsluta
+
             }
             break;
         }
 
-
-        // Till senare:
-        // Skapa meny. Lägg till ord, ta bort ord, visa alla ord (om användaren nu skulle vilja fuska) , och starta spelet.
-//
-
-
-
-        // och här är det lagom att avsluta din while
     }
 
 }

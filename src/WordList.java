@@ -6,6 +6,8 @@ public class WordList {
     Scanner input = new Scanner(System.in);
 
     public ArrayList<String> wordList = new ArrayList<String>();
+
+    // ordlistan
     String ord1 = "fönster";
     String ord2 = "penna";
     String ord3 = "katt";
@@ -27,6 +29,7 @@ public class WordList {
     String ord19 = "paraply";
     String ord20 = "blomma";
 
+    // initiera ordlistan med orden
     public void initWords() {
         wordList.add(ord1);
         wordList.add(ord2);
@@ -50,14 +53,13 @@ public class WordList {
         wordList.add(ord20);
     }
 
-
-
+    // visa alla ord i ordlistan
     public void showWords() {
         System.out.println("+---------------------+");
         System.out.println("|      GAME MENU      |");
         System.out.println("+---------------------+");
 
-        for (int i = 0; i < wordList.size(); i++) { // visa alla ord i en lista.
+        for (int i = 0; i < wordList.size(); i++) {
             System.out.println(wordList.get(i));
         }
         System.out.println("+---------------------+");
@@ -65,6 +67,7 @@ public class WordList {
         System.out.println("+---------------------+");
     }
 
+    // lägg till ett ord i ordlistan
     public void addWord() {
         System.out.println("Enter the word you would like to add! ");
         String word = input.nextLine();
@@ -72,7 +75,7 @@ public class WordList {
         System.out.println("Word: " + word + " has been added to the list!");
     }
 
-
+    // ta bort ett ord från ordlistan
     public void removeWord() {
         System.out.println("Enter the word you want to remove: ");
         String wordToRemove = input.nextLine();
@@ -81,8 +84,9 @@ public class WordList {
                 wordList.remove(wordToRemove);
                 System.out.println("Word: " + wordToRemove + " has been removed from the list!");
             }
-            }
         }
+    }
+
     public String randomWord() {
         Random rand = new Random(); // create an instance of Random class
         int randomNumber = rand.nextInt(wordList.size()); // generates a random number between 0 and wordList.size()-1
